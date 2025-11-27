@@ -1,0 +1,8 @@
+.hero-section {
+  background-color: #1040bf; /* El azul de tu diseño */
+  color: white;              /* Texto blanco SOLO aquí dentro */
+  min-height: 80vh;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+}

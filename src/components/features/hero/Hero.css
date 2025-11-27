@@ -1,0 +1,130 @@
+/* Contenedor Principal Azul */
+.hero-container {
+  background: linear-gradient(135deg, #0a44d1 0%, #062a85 100%); /* Azul degradado */
+  min-height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  color: white;
+}
+
+/* Grid de 2 columnas */
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Texto con Gradiente (La palabra UrbanGO) */
+.gradient-text {
+  background: linear-gradient(90deg, #00ff88 0%, #00ccff 100%); /* Verde a Azul claro */
+  -webkit-background-clip: text;
+  background-clip: text; /* Importante para que el fondo se recorte a las letras */
+  color: transparent;    /* Hace transparente el texto para ver el fondo */
+  font-weight: 800;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+/* Badge (Etiqueta pequeña arriba) */
+.badge {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Botones */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+/* Efecto Glow en el botón verde */
+.btn-glow {
+  background: #00d664 !important; /* Verde brillante */
+  box-shadow: 0 0 20px rgba(0, 214, 100, 0.4);
+  border: none;
+}
+
+/* Estadísticas */
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  color: #00ff88; /* Verde neon */
+  margin: 0;
+}
+
+/* --- EFECTO GLASSMORPHISM (CRISTAL) PARA LA IMAGEN --- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1); /* Blanco semitransparente */
+  backdrop-filter: blur(10px);          /* Efecto borroso detrás */
+  border-radius: 30px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra profunda */
+  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); /* Ligera inclinación 3D */
+  transition: transform 0.5s ease;
+    max-height: 80vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Corta cualquier cosa que intente salirse */
+}
+
+.glass-card:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg); /* Se endereza al pasar el mouse */
+}
+
+.phone-mockup {
+  width: 100%;      /* Ancho flexible */
+  height: auto;     /* Altura automática para mantener proporción... */
+  max-height: 70vh; /* ...PERO nunca más alta que el 70% de la pantalla */
+  object-fit: contain; /* CLAVE: Si la imagen es muy grande, la encoge para que quepa ENTERA */
+}
+
+/* Onda inferior */
+.wave-bottom {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+/* Responsive (Móvil) */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr; /* Una sola columna */
+    text-align: center;
+  }
+  
+  .hero-stats, .hero-actions {
+    justify-content: center;
+  }
+  
+  .glass-card {
+    transform: none; /* Quitar efecto 3D en móvil */
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,73 @@
+/* Contenedor principal con fondo blanco y sombra sutil */
+.header {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1rem 0;
+  position: sticky; /* Se queda fijo al hacer scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+/* Limitador de ancho para que no se expanda al infinito en pantallas grandes */
+.header-container {
+  max-width: 1200px;
+  height: 20px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Clave para separar las 3 secciones */
+}
+
+/* Estilos del Logo */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.logo-icon {
+  background-color: #1a5fff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Estilos de Navegación */
+.header-nav {
+  display: flex;
+  list-style: none;
+  gap: 30px; /* Espacio entre links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #1040bf;
+}
+
+/* Ajuste responsive simple: Ocultar menú en móviles */
+@media (max-width: 768px) {
+  .header-center {
+    display: none; /* Aquí luego pondrías tu menú hamburguesa */
+  }
+}
+
+.logo-image {
+  height: 80px; /* Ajusta este tamaño según tu barra de navegación */
+  width: auto;  /* Mantiene la proporción */
+  object-fit: contain;
+  margin-right: 10px; /* Espacio entre el logo y el texto */
+}
