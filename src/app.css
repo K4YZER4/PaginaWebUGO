@@ -1,3 +1,10 @@
+body {
+  margin: 0;      /* Elimina el margen por defecto del navegador */
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Evita scroll horizontal innecesario */
+}
+
 .hero-section {
   background-color: #1040bf; /* El azul de tu diseño */
   color: white;              /* Texto blanco SOLO aquí dentro */

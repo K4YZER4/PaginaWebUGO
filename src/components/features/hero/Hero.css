@@ -1,68 +1,98 @@
-/* Contenedor Principal Azul */
+/* =========================================
+   1. CONTENEDOR PRINCIPAL & LAYOUT
+   ========================================= */
+
+/* Sección completa (Fondo Azul) */
 .hero-container {
-  background: linear-gradient(135deg, #0a44d1 0%, #062a85 100%); /* Azul degradado */
+  background: linear-gradient(135deg, #0a44d1 0%, #062a85 100%);
   min-height: 90vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem;
   overflow: hidden;
   color: white;
 }
 
-/* Grid de 2 columnas */
+/* Rejilla central (Grid) */
 .hero-content {
-  max-width: 1200px;
-  width: 100%;
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
+  
+  /* Layout de 2 columnas: Texto (0.9) vs Imagen (1.1) */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 4rem;
   align-items: center;
+  
   position: relative;
   z-index: 2;
 }
 
-/* Texto con Gradiente (La palabra UrbanGO) */
-.gradient-text {
-  background: linear-gradient(90deg, #00ff88 0%, #00ccff 100%); /* Verde a Azul claro */
-  -webkit-background-clip: text;
-  background-clip: text; /* Importante para que el fondo se recorte a las letras */
-  color: transparent;    /* Hace transparente el texto para ver el fondo */
-  font-weight: 800;
+/* Columna Izquierda: Texto */
+.hero-text-col {
+  padding-right: 2rem;
 }
 
+/* Columna Derecha: Imagen */
+.hero-image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================================
+   2. TIPOGRAFÍA Y ELEMENTOS DE TEXTO
+   ========================================= */
+
+/* Título Principal */
 .hero-title {
   font-size: 3.5rem;
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
 
-/* Badge (Etiqueta pequeña arriba) */
+/* Texto Gradiente (Verde/Azul) */
+.gradient-text {
+  background: linear-gradient(90deg, #00ff88 0%, #00ccff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+/* Badge (Etiqueta superior) */
 .badge {
   background: rgba(255, 255, 255, 0.15);
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-size: 0.9rem;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Botones */
+/* =========================================
+   3. BOTONES Y ACCIONES
+   ========================================= */
+
 .hero-actions {
   display: flex;
   gap: 1rem;
   margin: 2.5rem 0;
 }
 
-/* Efecto Glow en el botón verde */
 .btn-glow {
-  background: #00d664 !important; /* Verde brillante */
+  background: #00d664 !important;
   box-shadow: 0 0 20px rgba(0, 214, 100, 0.4);
   border: none;
 }
 
-/* Estadísticas */
+/* =========================================
+   4. ESTADÍSTICAS
+   ========================================= */
+
 .hero-stats {
   display: flex;
   gap: 3rem;
@@ -71,60 +101,117 @@
 
 .stat-item h3 {
   font-size: 2rem;
-  color: #00ff88; /* Verde neon */
+  color: #00ff88;
   margin: 0;
 }
 
-/* --- EFECTO GLASSMORPHISM (CRISTAL) PARA LA IMAGEN --- */
+/* =========================================
+   5. TARJETA DE IMAGEN (CARD)
+   ========================================= */
+
 .glass-card {
-  background: rgba(255, 255, 255, 0.1); /* Blanco semitransparente */
-  backdrop-filter: blur(10px);          /* Efecto borroso detrás */
-  border-radius: 30px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra profunda */
-  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); /* Ligera inclinación 3D */
-  transition: transform 0.5s ease;
-    max-height: 80vh; 
+  /* Dimensiones fijas para efecto "Poster" */
+  width: 450px;
+  height: 600px;
+  
+  /* Estilo del marco */
+  background: white;
+  border: 12px solid white;
+  border-radius: 40px;
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.3);
+  
+  /* Comportamiento */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Corta cualquier cosa que intente salirse */
+  flex-shrink: 0;
+  
+  /* Transición suave si quisieras hover en el futuro */
+  transition: transform 0.3s ease;
 }
 
-.glass-card:hover {
-  transform: perspective(1000px) rotateY(0deg) rotateX(0deg); /* Se endereza al pasar el mouse */
-}
-
+/* Imagen interna */
 .phone-mockup {
-  width: 100%;      /* Ancho flexible */
-  height: auto;     /* Altura automática para mantener proporción... */
-  max-height: 70vh; /* ...PERO nunca más alta que el 70% de la pantalla */
-  object-fit: contain; /* CLAVE: Si la imagen es muy grande, la encoge para que quepa ENTERA */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Llena todo el marco sin deformarse */
 }
 
-/* Onda inferior */
+/* Efecto Hover sutil (Opcional) */
+.glass-card:hover {
+  transform: translateY(-5px); /* Flota un poquito al pasar el mouse */
+}
+
+/* =========================================
+   6. DECORACIONES (ONDAS)
+   ========================================= */
+
 .wave-bottom {
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   line-height: 0;
+  pointer-events: none;
 }
 
-/* Responsive (Móvil) */
-@media (max-width: 768px) {
+/* =========================================
+   7. RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================= */
+
+/* Tabletas y Laptops pequeñas (max 1024px) */
+@media (max-width: 1024px) {
   .hero-content {
-    grid-template-columns: 1fr; /* Una sola columna */
-    text-align: center;
-  }
-  
-  .hero-stats, .hero-actions {
-    justify-content: center;
+    grid-template-columns: 1fr 1fr; /* Volver a mitad y mitad */
+    gap: 2rem;
   }
   
   .glass-card {
-    transform: none; /* Quitar efecto 3D en móvil */
-    margin-top: 2rem;
+    width: 380px;
+    height: 500px;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem; /* Reducir un poco el título */
+  }
+}
+
+/* Móviles (max 768px) */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 1rem;
+    min-height: auto; /* Altura automática en móvil */
+    padding-bottom: 4rem; /* Espacio para la onda */
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr; /* Una sola columna */
+    text-align: center;
+    gap: 3rem;
+  }
+  
+  .hero-text-col {
+    padding-right: 0;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .hero-image-col {
+    margin-top: 1rem;
+  }
+  
+  .glass-card {
+    width: 300px;
+    height: 450px;
+    border-width: 8px;
+    transform: none !important; /* Desactiva hovers en táctil */
   }
 }
